@@ -24,3 +24,8 @@ h3 {
   line-height: 2.5rem;
   color: rgb(56, 56, 56);
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
