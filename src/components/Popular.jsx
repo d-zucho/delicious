@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 // Splide imports and styles
@@ -10,12 +10,8 @@ const Popular = () => {
   // State of popular recipes
   const [popular, setPopular] = useState([])
   // use hook useRef to fetch only once
-  const dataFetchedRef = useRef(false)
 
   useEffect(() => {
-    if (dataFetchedRef.current) return
-
-    dataFetchedRef.current = true
     getPopular()
   }, [])
 
@@ -23,6 +19,7 @@ const Popular = () => {
   const getPopular = async () => {
     const storageCheck = localStorage.getItem('popular')
 
+    // if there is data in local storage, dont fetch again
     if (storageCheck) {
       setPopular(JSON.parse(storageCheck))
       return
@@ -48,7 +45,7 @@ const Popular = () => {
           options={{
             perPage: 3,
             arrows: true,
-            pagination: false,
+            pagination: true,
             gap: '4rem',
             breakpoints: {
               568: {
@@ -79,6 +76,10 @@ const Popular = () => {
 
 const Wrapper = styled.div`
   margin: 4rem 0;
+  h3 {
+    margin-left: 5%;
+    font-size: 1.5rem;
+  }
 `
 
 const Card = styled.div`
@@ -102,6 +103,7 @@ const Card = styled.div`
     font-size: 1rem;
     height: 40%;
     text-shadow: 2px 2px 5px black;
+    padding: 0 0.25rem;
   }
 
   img {
