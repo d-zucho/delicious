@@ -10,6 +10,7 @@ import styled from 'styled-components'
 const Category = () => {
   return (
     <>
+      {/* <Container> */}
       <List>
         <SLink to={'cuisine/italian'}>
           <FaPizzaSlice />
@@ -28,9 +29,20 @@ const Category = () => {
           <h4>Chinese</h4>
         </SLink>
       </List>
+      {/* </Container> */}
     </>
   )
 }
+
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   background-color: #222424;
+//   color: #fff;
+//   padding: 2rem;
+//   border-radius: 1.25rem;
+// `
 
 const List = styled.section`
   display: flex;
@@ -43,6 +55,10 @@ const List = styled.section`
   color: #fff;
   padding: 2rem;
   border-radius: 1.25rem;
+
+  @media (max-width: 629px) {
+    gap: 0.5rem;
+  }
 
   ${
     '' /* a {
@@ -64,10 +80,29 @@ const SLink = styled(NavLink)`
   width: 7rem;
   height: 7rem;
   font-size: 1rem;
-  flex-shrink: 0;
+  transition: all 0.3s ease-in-out;
 
   &.active {
     background: linear-gradient(to right, #f27121, #e94057);
+  }
+
+  h4 {
+    display: block;
+  }
+
+  @media (max-width: 629px) {
+    font-size: 14px;
+    width: 4rem;
+    height: 4rem;
+    transform: scale(0.8);
+
+    h4 {
+      display: none;
+    }
+  }
+
+  svg {
+    font-size: 1.3rem;
   }
 `
 
