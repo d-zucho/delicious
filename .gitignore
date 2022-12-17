@@ -14,7 +14,7 @@
 #private & env files
 /src/private/
 .env
-
+*.md
 
 # misc
 .DS_Store

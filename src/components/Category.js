@@ -46,7 +46,7 @@ const Category = () => {
 
 const List = styled.section`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 2rem;
   margin: 2rem 0;

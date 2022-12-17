@@ -5,14 +5,18 @@ import Pages from './pages/Pages'
 // router
 import { BrowserRouter as Router } from 'react-router-dom'
 import Search from './components/Search'
+import Header from './components/Header'
 
 function App() {
   return (
     <div className='app'>
       <Router>
-        <Search />
-        <Category />
-        <Pages />
+        <Header />
+        <main>
+          <Search />
+          <Category />
+          <Pages />
+        </main>
       </Router>
     </div>
   )

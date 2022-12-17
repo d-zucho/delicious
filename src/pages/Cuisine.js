@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link, useParams } from 'react-router-dom'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 //* useParams is a hook that allows us to access the params of the current route/url
@@ -27,18 +27,20 @@ const Cuisine = () => {
   }, [params.type])
 
   return (
-    <Grid>
-      <Link to='/'>
+    <>
+      <Link className='block-display' to='/'>
         <h3>Home</h3>
       </Link>
-      <h1>{cuisine.type}</h1>
-      {cuisine.map((recipe) => (
-        <Card key={recipe.id}>
-          <img src={recipe.image} alt={recipe.title} />
-          <h4>{recipe.title}</h4>
-        </Card>
-      ))}
-    </Grid>
+      <Grid>
+        <h1>{cuisine.type}</h1>
+        {cuisine.map((recipe) => (
+          <Card key={recipe.id}>
+            <img src={recipe.image} alt={recipe.title} />
+            <h4>{recipe.title}</h4>
+          </Card>
+        ))}
+      </Grid>
+    </>
   )
 }
 
